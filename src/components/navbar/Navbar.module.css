@@ -1,0 +1,25 @@
+
+.navbar{
+    background-color: rgb(29, 31, 31);
+    
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right{
+    padding: 10px 10px;
+}
+
+.navbar a{
+    text-decoration: none;
+    padding:0 8px;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+.logo{
+    width: 80px;
+    height: 70px;
+    margin: 5px;
+}
