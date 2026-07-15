@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Register.module.css";
-import {Box, Button, Container, Paper, TextField, Typography, } from "@mui/material";
+import {Box, Button, CircularProgress, Container, Paper, TextField, Typography, } from "@mui/material";
 import {useForm} from 'react-hook-form'
 import axios from "axios";
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -11,7 +11,7 @@ import {registerSchema} from "./../../validations/RegisterSchema"
 function Register() {
   const [serverErrors, setServerErrors] = useState([]);
 
-  const {register, handleSubmit, formState:{errors}} = useForm({
+  const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(registerSchema)
   });
   const registerForm = async (data)=>{
@@ -56,8 +56,8 @@ function Register() {
           error={errors.password}
           helperText={errors.password?.message}/>
 
-          <Button type="submit" sx={{ mt: 1 }} >
-            Register
+          <Button type="submit" sx={{ mt: 1 }} disabled={isSubmitting}>
+            {isSubmitting ? <CircularProgress/> : 'Register'}
           </Button>
         </Box>
     </Box>
