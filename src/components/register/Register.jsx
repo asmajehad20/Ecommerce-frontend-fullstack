@@ -21,12 +21,12 @@ function Register() {
       console.log(response);
     }catch(ex){
       console.log(ex.response.data.errors);
-      serverErrors(errors.response.data.errors);
+      setServerErrors(errors.response.data.errors);
     }
   }
 
   return (
-    <Box maxWidth="sm">
+    <Container maxWidth="sm">
         <Typography variant="h4" align="center" fontWeight="bold" >
           Register
         </Typography>
@@ -60,7 +60,7 @@ function Register() {
             {isSubmitting ? <CircularProgress/> : 'Register'}
           </Button>
         </Box>
-    </Box>
+    </Container>
   );
 }
 

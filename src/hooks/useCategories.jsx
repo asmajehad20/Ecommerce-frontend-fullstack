@@ -6,7 +6,7 @@ import axiosInstance from '../api/axiosInstance';
 export default function useCategories() {
     const getCategories = async()=>{
             try{
-                const response = await axiosInstance.get(`/Categories`);
+                const response = await axiosInstance.get(`/Categories` );
                 return response.data;
             }catch(err){
                 console.log(err);
