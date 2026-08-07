@@ -1,12 +1,12 @@
 import React from 'react'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
-import axiosInstance from '../api/axiosInstance';
+import AuthAxiosInstence from '../api/AuthAxiosInstance';
 
 export default function useCategories() {
     const getCategories = async()=>{
             try{
-                const response = await axiosInstance.get(`/Categories` );
+                const response = await AuthAxiosInstence.get(`/Categories` );
                 return response.data;
             }catch(err){
                 console.log(err);

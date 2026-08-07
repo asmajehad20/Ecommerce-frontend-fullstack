@@ -5,6 +5,7 @@ import Register from "./src/components/register/Register";
 import MainLayout from "./src/layout/MainLayout";
 import Products from "./src/components/products/Products";
 import Cart from "./src/components/cart/Cart";
+import UserContextProvider from "./src/context/UserContext";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'cart',
-                element: <Cart/>
+                element: 
+                // <UserContextProvider>
+                    <Cart/>
+                // </UserContextProvider>
+                
             }
         ]
     }
