@@ -6,7 +6,8 @@ const AuthAxiosInstence = axios.create({
     baseURL: import.meta.env.VITE_BURL,
     headers:{
         "Authorization": `Bearer ${token}`,
-        "Accept-Language":"en"
+        "Accept-Language":"en",
+        "Access-Control-Allow-Origin":"*"
     }
 });
 
