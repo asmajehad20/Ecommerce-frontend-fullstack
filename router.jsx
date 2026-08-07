@@ -7,6 +7,7 @@ import Products from "./src/components/products/Products";
 import Product from "./src/components/product/Product";
 import Cart from "./src/components/cart/Cart";
 import UserContextProvider from "./src/context/UserContext";
+import ProtectedRouter from "./src/ProtectedRouter";
 
 const router = createBrowserRouter([
     {
@@ -36,9 +37,9 @@ const router = createBrowserRouter([
             {
                 path: 'cart',
                 element: 
-                // <UserContextProvider>
+                <ProtectedRouter>
                     <Cart/>
-                // </UserContextProvider>
+                </ProtectedRouter>
                 
             }
         ]
