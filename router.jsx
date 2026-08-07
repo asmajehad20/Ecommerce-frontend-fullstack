@@ -4,6 +4,7 @@ import Home from "./src/components/home/Home";
 import Register from "./src/components/register/Register";
 import MainLayout from "./src/layout/MainLayout";
 import Products from "./src/components/products/Products";
+import Product from "./src/components/product/Product";
 import Cart from "./src/components/cart/Cart";
 import UserContextProvider from "./src/context/UserContext";
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: 'products',
                 element: <Products />
+            },
+            {
+                path: 'product/:id',
+                element: <Product />
             },
             {
                 path: 'cart',

@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from '../categories/Categories'
+import Products from '../products/Products'
 import { useCounterStore } from '../../store/useCounterStore'
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
     <>
     {counter}
     <Categories/>
+    <Products/>
     </>
   )
 }
