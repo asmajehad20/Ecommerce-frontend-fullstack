@@ -7,10 +7,12 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { Password } from "@mui/icons-material";
 import {loginSchema} from "./../../validations/LoginSchema"
+import useAuthStore from "../../store/useAuthStore";
 
 function Login() {
   const [serverErrors, setServerErrors] = useState([]);
 
+  const setToken = useAuthStore((state) => state.setToken);
   const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(loginSchema)
   });
@@ -18,8 +20,8 @@ function Login() {
     console.log(data);
     try{
       const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/Account/Login`, data);
-      console.log(response.data.accessToken);
-      localStorage.setItem("accessToken", response.data.accessToken );
+      setToken(response.data.accessToken);
+      
     }catch(ex){
       console.log(ex);
       setServerErrors(errors.response.data.errors);

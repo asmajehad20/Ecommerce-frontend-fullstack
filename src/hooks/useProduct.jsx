@@ -13,7 +13,7 @@ export default function useProduct(id) {
             }
         }
         const query = useQuery({
-                queryKey:['product', id],
+                queryKey:['product', 'en', id],
                 queryFn:getProduct,
                 staleTime:1000 * 60 * 5
             });
