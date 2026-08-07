@@ -12,7 +12,7 @@ export default function Categories() {
     if(isError) return <Typography color='red'>{error.message}</Typography>
   return (
     <div>
-        {data.response.data.map((category)=>
+        {data?.response?.data.map((category)=>
         <Box>
             <Typography>{category.name}</Typography>
         </Box>)}
