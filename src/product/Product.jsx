@@ -3,7 +3,7 @@ import useProduct from '../../hooks/useProduct'
 import { useParams } from 'react-router-dom';
 import { Box, CircularProgress, Typography } from '@mui/material';
 
-export default function product() {
+export default function Product() {
     const {id} = useParams();
     const {data, isLoading, isError, error} = useProduct(id);
     if(isLoading) return <CircularProgress></CircularProgress>
