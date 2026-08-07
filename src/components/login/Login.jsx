@@ -8,10 +8,12 @@ import * as yup from "yup"
 import { Password } from "@mui/icons-material";
 import {loginSchema} from "./../../validations/LoginSchema"
 import useAuthStore from "../../store/useAuthStore";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [serverErrors, setServerErrors] = useState([]);
 
+  const navigate = useNavigate();
   const setToken = useAuthStore((state) => state.setToken);
   const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(loginSchema)
@@ -21,7 +23,7 @@ function Login() {
     try{
       const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/Account/Login`, data);
       setToken(response.data.accessToken);
-      
+      navigate('/');
     }catch(ex){
       console.log(ex);
       setServerErrors(errors.response.data.errors);
